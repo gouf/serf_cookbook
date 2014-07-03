@@ -16,9 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
   config.vm.box_url = "innocentzero/ubuntu-trusty"
 
-  config.vm.provision :serverspec do |spec|
-    spec.patter = '*_spec.rb'
-  end
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -99,6 +96,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #chef.json = { :mysql_password => "foo" }
   end
 
+  config.vm.provision :serverspec do |spec|
+    spec.pattern = 'spec/default/*_spec.rb'
+  end
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
   #
