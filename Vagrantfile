@@ -89,6 +89,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = %w(chef-repo/cookbooks chef-repo/site-cookbooks)
     chef.roles_path = "chef-repo/roles"
     chef.data_bags_path = "chef-repo/data_bags"
+    chef.add_recipe "apt"
     chef.add_recipe "serf"
     #chef.add_role "web"
   
